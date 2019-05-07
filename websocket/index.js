@@ -23,10 +23,12 @@ amqp.connect(process.env.WS_AMQP_URI, function(err, conn) {
   conn.createChannel(function(err, ch) {
     let queue = 'notifications';
     ch.consume(queue, function(message) {
-      console.log('consumed: %s', message.content);
+      // console.log('fields: %s', message.fields);
+      // console.log('properties: %s', message.properties);
+      console.log('message: %s', message.content.toString());
       server.clients.forEach(ws => {
         ws.send(message.content.toString());
       })
-    }, {noAck: true});
+    }, {noAck: false}); // will store at memory not remove 
   });
 });
