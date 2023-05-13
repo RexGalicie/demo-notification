@@ -9,9 +9,11 @@ socket.onopen = function() {
   }
 };
 
+var me = 'I'
+
 socket.onmessage = function(event) {
   var data = JSON.parse(event.data);
-  console.log(data);
+  console.log(data, me);
   if (data.type === 'notification') {
     console.log('message', data.message)
   }
