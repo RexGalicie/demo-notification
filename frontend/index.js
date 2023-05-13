@@ -8,7 +8,7 @@ socket.onopen = function() {
     }));
   }
 };
-var me = 'I'
+const me = 'I'
 socket.onmessage = function(event) {
   var data = JSON.parse(event.data);
   console.log(data, me);
