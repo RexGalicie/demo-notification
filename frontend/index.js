@@ -1,4 +1,6 @@
-var socket = new WebSocket(process.env.VUE_APP_WS_URL);
+let socket = new WebSocket(process.env.VUE_APP_WS_URL);
+
+//@TODO add config
 
 socket.onopen = function() {
   if (user) {
